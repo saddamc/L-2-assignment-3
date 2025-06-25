@@ -43,8 +43,8 @@ A Library Management System built with **Node.js**, **Express**, **TypeScript**,
     - npm i zod
 ```
 
-### Link
+### GitHub Link:
 
 ```bash
-    GitHub: https://github.com/saddamc/L-2-assignment-3
+https://github.com/saddamc/L-2-assignment-3
 ```
