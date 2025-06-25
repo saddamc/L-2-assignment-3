@@ -43,9 +43,8 @@ A Library Management System built with **Node.js**, **Express**, **TypeScript**,
     - npm i zod
 ```
 
-### 1. Clone the repository
+### Link
 
 ```bash
-git clone https://github.com/your-username/library-api.git
-cd library-api
+    GitHub: https://github.com/saddamc/L-2-assignment-3
 ```
