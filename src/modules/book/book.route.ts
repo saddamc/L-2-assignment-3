@@ -11,6 +11,6 @@ export const bookRoute = Router();
 
 bookRoute.post("/books", createBook);
 bookRoute.get("/books", getBooks);
-bookRoute.get("/books/:bookId", getBookById);
-bookRoute.patch("/books/:bookId", updateBook);
-bookRoute.delete("/books/:bookId", deleteBook);
+bookRoute.get("/books/:id", getBookById);
+bookRoute.patch("/books/:id", updateBook);
+bookRoute.delete("/books/:id", deleteBook);

@@ -69,7 +69,7 @@ export const getBooks = async (req: Request, res: Response) => {
 // get book by id
 export const getBookById = async (req: Request, res: Response) => {
   try {
-    const bookId = req.params.bookId;
+    const bookId = req.params.id;
     const data = await Book.findById(bookId);
 
     res.status(201).json({
@@ -89,7 +89,7 @@ export const getBookById = async (req: Request, res: Response) => {
 // Update Book
 export const updateBook = async (req: Request, res: Response) => {
   try {
-    const bookId = req.params.bookId;
+    const bookId = req.params.id;
     // update
     const updatedBody = req.body;
     const data = await Book.findByIdAndUpdate(bookId, updatedBody, {
@@ -113,7 +113,7 @@ export const updateBook = async (req: Request, res: Response) => {
 // Delete Book
 export const deleteBook = async (req: Request, res: Response) => {
   try {
-    const bookId = req.params.bookId;
+    const bookId = req.params.id;
     const data = await Book.findOneAndDelete({ _id: bookId });
 
     res.status(201).json({

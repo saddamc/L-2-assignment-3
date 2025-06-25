@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(routes);
 
 app.get("/", (req, res) => {
-  res.send({ success: true, message: "✅ I am here" });
+  res.send("✅ Library Management System ✅");
 });
 
 app.listen(config.port, () => {

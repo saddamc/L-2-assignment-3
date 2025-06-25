@@ -19,6 +19,17 @@ A Library Management System built with **Node.js**, **Express**, **TypeScript**,
 
 ---
 
+## ⚙️ Route API
+
+    ☼ bookRoute.post("/books", createBook);
+    ☼ bookRoute.get("/books", getBooks);
+    ☼ bookRoute.get("/books/:id", getBookById);
+    ☼ bookRoute.patch("/books/:id", updateBook);
+    ☼ bookRoute.delete("/books/:id", deleteBook);
+
+    ☼ borrowRoute.post("/borrow", createBorrow);
+    ☼ borrowRoute.get("/borrow/summary", borrowBooksSummary);
+
 ## Technologies Used
 
 - Node.js + Express

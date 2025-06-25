@@ -5,27 +5,28 @@ import { Borrow } from "./borrow.model";
 // create borrow
 export const createBorrow = async (req: Request, res: Response) => {
   try {
-    const { book: bookId, quantity, dueDate } = req.body;
-
-    const book = await Book.findById(bookId);
-    if (!book) {
+    const { book, quantity, dueDate } = req.body;
+    // console.log(req.body);
+    const foundBook = await Book.findById(book);
+    // console.log("book:", book);
+    if (!foundBook) {
       return res
         .status(404)
-        .json({ message: `Book ID: ${bookId} does not exist` });
+        .json({ message: `Book ID: ${book} does not exist` });
     }
 
-    if (quantity > book.copies) {
+    if (quantity > foundBook.copies) {
       return res.status(400).json({
-        message: `Only ${book.copies} copies are available, you borrow ${quantity} copy`,
+        message: `Only ${foundBook.copies} copies are available, you borrow ${quantity} copy`,
       });
     }
 
     // update book stock
-    const previousCopies = await book.updateStock(quantity);
+    const previousCopies = await foundBook.updateStock(quantity);
 
     // create borrow
     const borrow = await Borrow.create({
-      book: bookId,
+      book,
       quantity,
       dueDate,
     });
@@ -36,10 +37,10 @@ export const createBorrow = async (req: Request, res: Response) => {
       data: borrow,
     });
   } catch (error: any) {
-    res.status(404).json({
+    res.status(500).json({
       success: false,
       message: "Something wrong",
-      error: error.message | error,
+      error: error?.message | error,
     });
   }
 };
