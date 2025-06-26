@@ -3,7 +3,10 @@ import { Book } from "../book/book.model";
 import { Borrow } from "./borrow.model";
 
 // create borrow
-export const createBorrow = async (req: Request, res: Response) => {
+export const createBorrow = async (
+  req: Request,
+  res: Response
+): Promise<Response | void> => {
   try {
     const { book, quantity, dueDate } = req.body;
     // console.log(req.body);
