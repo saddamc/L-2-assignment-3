@@ -45,16 +45,25 @@ export const getBooks = async (req: Request, res: Response) => {
       limit = "10",
     } = req.query;
 
-    const query = filter ? { genre: filter.toString().toUpperCase() } : {};
+    const query =
+      filter && typeof filter === "string" && filter.trim() !== ""
+        ? {
+            $or: [
+              { title: { $regex: filter, $options: "i" } },
+              { author: { $regex: filter, $options: "i" } },
+              { genre: { $regex: filter.toUpperCase(), $options: "i" } },
+              { isbn: { $regex: filter, $options: "i" } },
+            ],
+          }
+        : {};
 
     const data = await Book.find(query)
       .sort({ [sortBy as any]: sort === "asc" ? 1 : -1 })
       .limit(Number(limit));
-    // const books = await Book.findByGenre("");
 
     res.status(201).json({
       success: true,
-      message: "Books retrieved successfully",
+      message: `${data.length} Books retrieved successfully`,
       data,
     });
   } catch (error) {

@@ -6,13 +6,15 @@ import routes from "./modules/routes";
 
 const app = express();
 
+// middleware
 app.use(cors());
 app.use(express.json());
 
+// route
 app.use(routes);
 
 app.get("/", (req, res) => {
-  res.send("✅ Library Management System ✅");
+  res.send("✅ Start Library Management System");
 });
 
 app.listen(config.port, () => {
@@ -24,7 +26,7 @@ async function server() {
     // console.log(config);
     await mongoose.connect(config.database_url!);
 
-    console.log(`✅ Connected to database`);
+    console.log(`✅ Connected to database MongoDB using Mongoose`);
   } catch (error) {
     console.error(`server error ${server}`);
   }

@@ -79,7 +79,7 @@ export const borrowBooksSummary = async (req: Request, res: Response) => {
     ]);
     res.status(201).json({
       success: true,
-      message: "Borrowed books summary retrieved successfully",
+      message: "Borrowed books summary successfully",
       data: borrowSummary,
     });
   } catch (error) {

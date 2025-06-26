@@ -8,10 +8,6 @@ const borrowSchema = new Schema<IBorrow>(
       type: Number,
       required: [true, "Quantity is missing"],
       min: [1, "Borrow at least one copy"],
-      validate: {
-        validator: Number.isInteger,
-        message: "Quantity must be an integer",
-      },
     },
     dueDate: { type: Date, required: [true, "Due Date is missing"] },
   },

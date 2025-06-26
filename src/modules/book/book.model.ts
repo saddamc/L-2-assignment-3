@@ -38,10 +38,6 @@ const bookSchema = new Schema<IBook, BookStaticMethods>(
       type: Number,
       required: [true, "Copies are required"],
       min: [0, "Copies cannot be negative"],
-      validate: {
-        validator: Number.isInteger,
-        message: "Copies must be an integer value",
-      },
     },
     available: {
       type: Boolean,
@@ -57,12 +53,6 @@ const bookSchema = new Schema<IBook, BookStaticMethods>(
 bookSchema.static("findByGenre", async function (genre: string) {
   const findGenre = await this.find({ genre });
   return findGenre;
-});
-
-// middleware => pre
-bookSchema.pre("save", function (next) {
-  console.log("Book:", this.title);
-  next();
 });
 
 // Query Middleware
