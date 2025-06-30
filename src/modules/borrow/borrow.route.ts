@@ -3,5 +3,5 @@ import { borrowBooksSummary, createBorrow } from "./borrow.controller";
 
 export const borrowRoute = Router();
 
-borrowRoute.post("/borrow", createBorrow);
-borrowRoute.get("/borrow/summary", borrowBooksSummary);
+borrowRoute.post("/api/borrow", createBorrow);
+borrowRoute.get("/api/borrow/", borrowBooksSummary);

@@ -9,8 +9,8 @@ import {
 
 export const bookRoute = Router();
 
-bookRoute.post("/books", createBook);
-bookRoute.get("/books", getBooks);
-bookRoute.get("/books/:id", getBookById);
-bookRoute.patch("/books/:id", updateBook);
-bookRoute.delete("/books/:id", deleteBook);
+bookRoute.post("/api/books", createBook);
+bookRoute.get("/api/books", getBooks);
+bookRoute.get("/api/books/:id", getBookById);
+bookRoute.patch("/api/books/:id", updateBook);
+bookRoute.delete("/api/books/:id", deleteBook);

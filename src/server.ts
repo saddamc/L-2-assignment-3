@@ -26,7 +26,7 @@ async function server() {
     // console.log(config);
     await mongoose.connect(config.database_url!);
 
-    console.log(`✅ Connected to database MongoDB using Mongoose`);
+    console.log(`✅ Connected to MongoDB using Mongoose`);
   } catch (error) {
     console.error(`server error ${server}`);
   }
